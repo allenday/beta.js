@@ -7,6 +7,7 @@ Plot beta distribution using javascript and google charts
 
 Here's the code:
 
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,5 +49,4 @@ Here's the code:
   plotBetaPDF('5.5',5,5,0,1,0.01);
   </script>
 </html>
-
-
+```
