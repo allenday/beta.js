@@ -1,7 +1,9 @@
 beta.js
 =======
 
-Plot beta distribution using javascript and google charts
+Plot beta distribution using javascript and google charts:
+
+![example plots](http://allenday.github.io/example.png)
 
 [Check the demo](http://allenday.github.io/beta.js/beta.html).
 
