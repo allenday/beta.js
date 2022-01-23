@@ -162,6 +162,26 @@ function BetaPDFRange(A,B,Zmin,Zmax,Zstep) {
 function plotBetaPDF(element, alpha, beta, pMin, pMax, pStep) {
   var tuples = BetaPDFRange(alpha,beta,pMin,pMax,pStep);    
   tuples.unshift(['x','p']);
+  evi = -1;
+  maxP = -1;
+  cum05 = 0;
+  cumsum = 0;
+  for (i=1; i<tuples.length; i++) {
+    sliceP = tuples[i][1];
+    cumsum += sliceP;
+
+    if (cum05 == 0 && cumsum > 0.05) {
+      cum05 = i;
+    }
+    if (sliceP > maxP) {
+      maxP = sliceP;
+      evi = i;
+    }
+  }
+
+  expectedValue = (evi-1)/(tuples.length-1);
+  console.log("expectedValue: "+expectedValue+" lowerBound: "+cum05);
+
   var data = google.visualization.arrayToDataTable(tuples);
   var options = {
     //title: 'PDF of Beta(['+pMin+'..'+pMax+'],'+alpha+','+beta+'), step='+pStep,
